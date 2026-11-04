@@ -98,18 +98,5 @@ Helper functions: `getAllMovies`, `getMovieBySlug`, `getAllActors`, `getActorByS
 2. For movies, list the slugs of the actors in `castSlugs`. Each slug must match an existing actor.
 3. The new entry appears automatically in the catalog, search and detail pages.
 
-## Known Issues / TODO
-
-- `app/api/courses/route.ts` imports `getAllCourses`, which does not exist in `lib/data.tsx`. This will break the production build. Remove the file or rewrite it as a movies API using `searchMovies`.
-- The movie details page and `MoviesCatalogClient` look up actors with `movie.slug` instead of `getActorsForMovie(movie)`, so the Actors sidebar is never shown and cards show "Unknown actor".
-- The movie details page hardcodes the badges `Action`, `Drama` and `Adventure` next to the real genre.
-- `app/layout.tsx` and `app/page.tsx` both render a `<main>` element (nested `<main>`), and the background glow elements are duplicated.
-- Many `castSlugs` refer to actors that do not exist in the `actors` list, and some are assigned to the wrong movie.
-- Catalog search only matches title and short description, not actors, even though the header placeholder suggests it does.
-- Changing a filter does not reset the current `?page=` value.
-- A few `watchProviders` URLs are missing the `https://` prefix.
-- The `name` field in `package.json` is still `homework`.
-
-## License
 
 This project is for educational purposes.
